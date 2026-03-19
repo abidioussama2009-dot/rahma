@@ -1,258 +1,240 @@
-# rahma[Untitled-1.html](https://github.com/user-attachments/files/24840234/Untitled-1.html)
+[Untitled-2.html](https://github.com/user-attachments/files/26117398/Untitled-2.html)
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Rahma 💖 Universe of Love</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Love 💖</title>
+
     <style>
-      html,
       body {
         margin: 0;
         padding: 0;
-        height: 100%;
-        overflow: hidden;
-        font-family: "Comic Sans MS", cursive, sans-serif;
-        background: radial-gradient(circle at center, #120012, #450045);
-        cursor: url("https://i.ibb.co/0sY9M4x/cursor-heart.png"), auto;
-      }
-
-      .card {
-        position: relative;
-        z-index: 2;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(15px);
-        border-radius: 40px;
-        padding: 60px 80px;
+        font-family: Arial, sans-serif;
+        color: white;
         text-align: center;
-        box-shadow: 0 0 60px #ff4d88;
-        animation: heartbeat 3s infinite;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ff4da6, #330033);
+        animation: gradientShift 10s ease infinite;
       }
 
-      @keyframes heartbeat {
-        0%,
-        100% {
-          transform: scale(1);
+      @keyframes gradientShift {
+        0% {
+          background: linear-gradient(135deg, #ff4da6, #330033);
+        }
+        25% {
+          background: linear-gradient(135deg, #ff66cc, #330066);
         }
         50% {
-          transform: scale(1.05);
+          background: linear-gradient(135deg, #ff99dd, #660033);
+        }
+        75% {
+          background: linear-gradient(135deg, #ff4da6, #660066);
+        }
+        100% {
+          background: linear-gradient(135deg, #ff4da6, #330033);
         }
       }
 
-      h1 {
-        font-size: 70px;
-        color: #fff;
-        text-shadow: 0 0 20px #ff4d88, 0 0 40px #ff1f6d;
-        margin-bottom: 15px;
+      .container {
+        position: relative;
+        z-index: 2;
+        margin-top: 50px;
       }
 
       #message {
-        font-size: 28px;
-        color: #ffd6e8;
-        margin-bottom: 35px;
-        min-height: 40px;
+        display: none;
+        font-size: 22px;
+        max-width: 700px;
+        margin: 30px auto;
+        line-height: 1.6;
+        animation: fadeIn 1s forwards;
+        text-shadow: 0 0 20px #ff99dd, 0 0 40px #ff66cc;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       button {
-        padding: 20px 60px;
-        font-size: 24px;
+        padding: 15px 35px;
+        font-size: 20px;
         border: none;
-        border-radius: 50px;
-        background: linear-gradient(45deg, #ff006a, #ffb347);
-        color: white;
+        border-radius: 30px;
+        margin: 15px;
         cursor: pointer;
-        box-shadow: 0 0 30px #ff4d88;
-        transition: transform 0.2s, box-shadow 0.2s;
+        transition: 0.3s;
       }
 
       button:hover {
-        transform: scale(1.2) rotate(-3deg);
-        box-shadow: 0 0 50px #ff7ab8;
+        transform: scale(1.1);
+      }
+
+      #yesBtn {
+        background: #00ff99;
+        color: black;
+      }
+      #noBtn {
+        background: #ff3333;
+        color: white;
+      }
+      #fireworkBtn {
+        background: #ffcc33;
+        color: black;
       }
 
       .kiss {
         position: absolute;
-        font-size: 50px;
-        pointer-events: none;
-        animation: floatRandom 1s ease-out forwards;
-      }
-
-      @keyframes floatRandom {
-        0% {
-          opacity: 1;
-          transform: scale(1) translate(0, 0);
-        }
-        50% {
-          transform: scale(1.2) translate(0, -20px);
-        }
-        100% {
-          opacity: 0;
-          transform: scale(1.4) translate(0, -50px);
-        }
-      }
-
-      #counter {
-        margin-top: 15px;
-        color: #fff;
         font-size: 20px;
-      }
-
-      .heart {
-        position: absolute;
         pointer-events: none;
-        animation: floatUp 5s linear forwards;
-        z-index: 9999;
+        animation: floatUp 2s linear forwards;
       }
 
       @keyframes floatUp {
         0% {
-          transform: translateY(0) scale(0.5);
           opacity: 1;
+          transform: translateY(0);
         }
         100% {
-          transform: translateY(-200px) scale(1.5);
           opacity: 0;
+          transform: translateY(-80px);
         }
       }
 
-      canvas {
+      .heart {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
+        font-size: 25px;
+        animation: floatHeart 4s linear forwards;
+      }
+
+      @keyframes floatHeart {
+        0% {
+          opacity: 1;
+          transform: translateY(0) rotate(0deg);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-400px) rotate(360deg);
+        }
+      }
+
+      .firework {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        pointer-events: none;
       }
     </style>
   </head>
-  <body>
-    <canvas id="bg"></canvas>
 
-    <div class="card" id="card">
-      <h1>Rahma 💖</h1>
-      <div id="message"></div>
-      <button onclick="sendKiss()">Send Magical Kiss 💋</button>
-      <div id="counter">Kisses sent: 0</div>
+  <body>
+    <div class="container" id="container">
+      <h1>💖 Do You Love Me? 💖</h1>
+
+      <button id="yesBtn" onclick="showMessage()">YES 💕</button>
+      <button id="noBtn" onclick="clickNo()">NO 💔</button>
+
+      <div id="message">
+        My beautiful Rahma 💖<br /><br />
+        From the first moment I saw you, I knew you were special. Your smile
+        lights up my world brighter than the sun. Your eyes shine like stars in
+        the night sky. You are the most beautiful girl I have ever seen, not
+        only outside but inside too. <br /><br />
+        Your kindness, your laugh, your energy — everything about you is perfect
+        to me. I feel lucky every single day to have you in my life. I hope we
+        continue making memories, smiling together, supporting each other, and
+        growing stronger in love. 💕<br /><br />
+        Happy Birthday my love 🎂💖
+        <br />
+        <button id="fireworkBtn" onclick="fireworks()">Fireworks 🎆</button>
+      </div>
     </div>
 
-    <audio
-      id="kissSound"
-      src="https://www.soundjay.com/human/kiss-1.mp3"
-    ></audio>
-
     <script>
-      let kisses = 0;
-      const messageText = "I LOVE YOU RAHMA 💕🌌";
-      let messageIndex = 0;
+      document.addEventListener("mousemove", function (e) {
+        let kiss = document.createElement("div");
+        kiss.className = "kiss";
+        kiss.innerHTML = "💋";
+        kiss.style.left = e.pageX + "px";
+        kiss.style.top = e.pageY + "px";
+        document.body.appendChild(kiss);
+        setTimeout(() => kiss.remove(), 2000);
+      });
 
-      // Typewriter message
-      function typeMessage() {
-        const msg = document.getElementById("message");
-        if (messageIndex < messageText.length) {
-          msg.innerHTML += messageText[messageIndex++];
-          setTimeout(typeMessage, 150);
+      function loveExplosion() {
+        for (let i = 0; i < 25; i++) {
+          let heart = document.createElement("div");
+          heart.className = "heart";
+          heart.innerHTML = "💖";
+          heart.style.left = Math.random() * window.innerWidth + "px";
+          heart.style.top = Math.random() * window.innerHeight + "px";
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 4000);
         }
       }
-      typeMessage();
 
-      // Send kiss
-      function sendKiss() {
-        const card = document.getElementById("card");
-        const counter = document.getElementById("counter");
-        const audio = document.getElementById("kissSound");
+      function showMessage() {
+        const container = document.getElementById("container");
+        const message = document.getElementById("message");
+        container.innerHTML = "";
+        container.appendChild(message);
+        message.style.display = "block";
+        loveExplosion();
+      }
 
-        audio.currentTime = 0;
-        audio.play();
-
-        for (let i = 0; i < 10; i++) {
-          const kiss = document.createElement("div");
-          kiss.className = "kiss";
-          kiss.innerHTML = "💋💖";
-
-          const rect = card.getBoundingClientRect();
-          const x = Math.random() * (rect.width - 50);
-          const y = Math.random() * (rect.height - 50);
-          kiss.style.left = x + "px";
-          kiss.style.top = y + "px";
-
-          card.appendChild(kiss);
-          setTimeout(() => kiss.remove(), 1000);
+      let noClicks = 0;
+      function clickNo() {
+        noClicks++;
+        const yesBtn = document.getElementById("yesBtn");
+        let currentScale =
+          parseFloat(yesBtn.style.transform.replace(/[^0-9.]/g, "")) || 1;
+        currentScale += 0.15;
+        yesBtn.style.transform = `scale(${currentScale})`;
+        loveExplosion();
+        if (noClicks >= 7) {
+          const noBtn = document.getElementById("noBtn");
+          noBtn.innerText = "YES 💕";
+          noBtn.style.background = "#00ff99";
         }
+      }
 
-        const rect = card.getBoundingClientRect();
+      function fireworks() {
         for (let i = 0; i < 30; i++) {
-          createHeart(rect.left + rect.width / 2, rect.top + rect.height / 2);
-        }
+          let fire = document.createElement("div");
+          fire.className = "firework";
+          fire.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
 
-        kisses++;
-        counter.innerHTML = "Kisses sent: " + kisses;
-      }
+          let startX = Math.random() * window.innerWidth;
+          let startY = Math.random() * window.innerHeight;
+          fire.style.left = startX + "px";
+          fire.style.top = startY + "px";
+          document.body.appendChild(fire);
+          let angle = Math.random() * 2 * Math.PI;
+          let distance = 50 + Math.random() * 150;
+          let x = distance * Math.cos(angle);
+          let y = distance * Math.sin(angle);
 
-      // Floating hearts
-      function createHeart(x, y) {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerHTML = Math.random() < 0.5 ? "❤️" : "💖";
-        heart.style.left = x + "px";
-        heart.style.top = y + "px";
-        heart.style.fontSize = 20 + Math.random() * 20 + "px";
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 5000);
-      }
+          fire.animate(
+            [
+              { transform: `translate(0,0) scale(1)`, opacity: 1 },
+              { transform: `translate(${x}px, ${y}px) scale(1.5)`, opacity: 0 },
+            ],
+            {
+              duration: 1000 + Math.random() * 1000,
+              easing: "ease-out",
+            }
+          );
 
-      // ✅ MODIFIED PART: heart ALWAYS appears when mouse moves
-      document.addEventListener("mousemove", (e) => {
-        createHeart(e.clientX, e.clientY);
-      });
-
-      // Background animation (unchanged)
-      const canvas = document.getElementById("bg");
-      const ctx = canvas.getContext("2d");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      let stars = [],
-        shootingStars = [],
-        fireworks = [];
-
-      function initStars() {
-        stars = [];
-        for (let i = 0; i < 300; i++) {
-          stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            r: Math.random() * 1.5,
-            dx: (Math.random() - 0.5) * 0.1,
-            dy: (Math.random() - 0.5) * 0.1,
-          });
+          setTimeout(() => fire.remove(), 2000);
         }
       }
-
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let s of stars) {
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-          ctx.fillStyle = "#fff";
-          ctx.fill();
-          s.x += s.dx;
-          s.y += s.dy;
-          if (s.x < 0) s.x = canvas.width;
-          if (s.x > canvas.width) s.x = 0;
-          if (s.y < 0) s.y = canvas.height;
-          if (s.y > canvas.height) s.y = 0;
-        }
-
-        requestAnimationFrame(animate);
-      }
-
-      initStars();
-      animate();
-      window.addEventListener("resize", () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        initStars();
-      });
     </script>
   </body>
 </html>
